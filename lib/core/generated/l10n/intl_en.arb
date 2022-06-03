@@ -1,0 +1,57 @@
+{
+  "ok": "Ok",
+  "cancel": "Cancel",
+  "choose_something": "Choose something",
+  "connecting": "Connecting...",
+  "connection_successful": "Connection successful!",
+  "warning": "Warning",
+  "cant_connect": "Can't connect",
+  "understood": "Understood",
+  "no_thanks": "No thanks",
+  "database_exception": "Database exception",
+  "cancelled": "Cancelled",
+  "connect_timeout": "Connect timeout",
+  "receive_timeout": "Receive timeout",
+  "send_timeout": "Send timeout",
+  "connection_problem": "connection problem",
+  "connection_problem_desc": "connection problem desc",
+  "server_not_found": "Server not found",
+  "server_unknown_error": "server unknown error",
+  "server_successfully": "server successfully",
+  "wozniakBio": "Developed the {appleOne} & {appleTwo} microcomputers.",
+  "@wozniakBio": {
+    "placeholders": {
+      "appleOne": {
+        "type": "String",
+        "example": "Apple I"
+      },
+      "appleTwo": {}
+    }
+  },
+  "heroCount": "{count,plural, =0{No heroes yet} =1{1 hero} other{{count} heroes}}",
+  "@heroCount": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "itemTotal": "Your total is: {value}",
+  "@itemTotal": {
+    "placeholders": {
+      "value": {
+        "type": "double",
+        "format": "currency"
+      }
+    }
+  },
+  "heroBorn": "Born {date}",
+  "@heroBorn": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      }
+    }
+  },
+  "posts": "Posts",
+  "data_empty": "Data is empty"
+}

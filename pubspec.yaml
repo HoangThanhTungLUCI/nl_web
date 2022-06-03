@@ -1,0 +1,128 @@
+name: nl_web
+description: Luci's base Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: "3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # UI
+  cupertino_icons: ^1.0.2
+  cached_network_image: ^3.2.0
+
+  # Architecture, State-management
+  get_it: ^7.2.0
+  rxdart: ^0.27.3
+  flutter_bloc: ^8.0.1
+  stream_transform: ^2.0.0
+  bloc_concurrency: ^0.2.0
+
+  # API, Network
+  dio: ^4.0.6
+  json_serializable: ^6.1.6
+  json_annotation: ^4.4.0
+  mockito: ^5.0.10
+  retrofit: ^3.0.1+1
+
+  # Internal-storage
+  shared_preferences: ^2.0.13
+  path_provider: ^2.0.9
+  flutter_keychain: ^2.1.0
+
+  # Image
+
+  # Meta-data
+
+  # Firebase
+
+  # WebView
+
+  # Util
+  equatable: ^2.0.3
+  dartz: ^0.10.0
+  connectivity_plus: ^2.3.0 # distinguish between cellular vs WiFi connection.
+  package_info_plus: ^1.4.2 # fetch application version information
+  permission_handler: ^9.2.0
+  intl: ^0.17.0
+  get: ^4.6.1
+
+  # Log
+  logger: ^1.1.0
+  logger_console: ^0.0.4
+
+  # For iOS
+
+  # For Android
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.4
+  build_runner: ^2.1.10
+  retrofit_generator: ^4.0.1
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/
+    - assets/data/
+    - assets/images/
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Roboto-Bold.ttf
+          weight: 700
+
+flutter_intl:
+  enabled: false # Required. Must be set to true to activate the package. Default: false
+  class_name: S # Optional. Sets the name for the generated localization class. Default: S
+  main_locale: vn
+  output_dir: lib/core/generated
+  arb_dir: lib/core/generated/l10n
+
+  localizely: # Optional settings if you use Localizely platform. Read more: https://localizely.com/flutter-localization-workflow
+    project_id: # Get it from the https://app.localizely.com/projects page.
+    branch: # Get it from the “Branches” page on the Localizely platform, in case branching is enabled and you want to use a non-main branch.
+    upload_overwrite: # Set to true if you want to overwrite translations with upload. Default: false
+    upload_as_reviewed: # Set to true if you want to mark uploaded translations as reviewed. Default: false
+    ota_enabled: # Set to true if you want to use Localizely Over-the-air functionality. Default: false
+  
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
