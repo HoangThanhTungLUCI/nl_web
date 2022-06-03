@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'core/style/style.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+//////////////////branch 2
 class UiForgotPass extends StatefulWidget {
   const UiForgotPass({Key? key}) : super(key: key);
 
@@ -12,13 +14,11 @@ class UiForgotPass extends StatefulWidget {
 class _UiForgotPassState extends State<UiForgotPass> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(1440, 926));
     return Scaffold(
       body: Container(
-        constraints: BoxConstraints.expand(),
         width: double.infinity,
         height: double.infinity,
-        // height: MediaQuery.of(context).size.height,
-        // width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/BG.png"),
@@ -26,25 +26,24 @@ class _UiForgotPassState extends State<UiForgotPass> {
           ),
         ),
         child: SingleChildScrollView(
-          // clipBehavior: Clip.hardEdge,
+          scrollDirection: Axis.vertical,
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 160, horizontal: 0),
+            padding: EdgeInsets.symmetric(vertical: 160.w, horizontal: 0),
             child: Column(
-              // padding: EdgeInsets.symmetric(vertical: 160),
-              // crossAxisAlignment: CrossAxisAlignment.center,
-
               children: [
                 Container(
-                  width: 384,
+                  // width: 384,
                   // height: 700,
+                  width: ScreenUtil().setWidth(384),
+                  // height: ScreenUtil().setHeight(700),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(),
                     borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 40, horizontal: 40),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 40.h, horizontal: 40.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -52,6 +51,8 @@ class _UiForgotPassState extends State<UiForgotPass> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              // Text("w: $w"),
+                              // Text("h: $h"),
                               setTextTitle(textInput: "Thay đổi mật khẩu"),
                               setMessage(
                                   textInput:
@@ -59,7 +60,7 @@ class _UiForgotPassState extends State<UiForgotPass> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 24),
+                        SizedBox(height: 24.h),
                         Container(
                           // width: 304,
                           // height: 236,
@@ -71,11 +72,11 @@ class _UiForgotPassState extends State<UiForgotPass> {
                               inputTextField(
                                   detail: "Mật khẩu hiện tại",
                                   controller: TextEditingController()),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16.h),
                               inputTextField(
                                   detail: "Mật khẩu mới",
                                   controller: TextEditingController()),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16.h),
                               inputTextField(
                                 detail: "Nhập lại mật khẩu mới",
                                 controller: TextEditingController(),
@@ -84,7 +85,7 @@ class _UiForgotPassState extends State<UiForgotPass> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        SizedBox(height: 16.h),
                         Container(
                           // width: 304,
                           // height: 120,
@@ -116,7 +117,7 @@ class _UiForgotPassState extends State<UiForgotPass> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 28),
+                        SizedBox(height: 28.h),
                         buttonLogin(textTitle: 'Thay Đổi', funcition: null),
                       ],
                     ),
@@ -135,7 +136,7 @@ Widget setTextTitle({required textInput}) {
   return Text(
     textInput,
     style: TextStyle(
-      fontSize: 20,
+      fontSize: 20.sp,
       fontFamily: mFontRoboto,
       color: AppColor.mCInk900,
     ),
@@ -149,7 +150,8 @@ Widget setMessage({required String textInput}) {
       borderRadius: BorderRadius.all(Radius.circular(8.0)),
     ),
     child: Padding(
-      padding: EdgeInsets.all(16.0),
+      // padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
       child: Align(
         alignment: Alignment.center,
         child: Text(
@@ -157,7 +159,7 @@ Widget setMessage({required String textInput}) {
           style: TextStyle(
             fontFamily: mFontRoboto,
             fontWeight: FontWeight.w400,
-            fontSize: AppDimens.mFontSizeNormal,
+            fontSize: AppDimens.mFontSizeNormal.sp,
             color: Color(0xff98272B),
           ),
         ),
@@ -168,6 +170,7 @@ Widget setMessage({required String textInput}) {
 
 Widget inputTextField(
     {required String detail, required TextEditingController controller}) {
+  bool _isObscure = true;
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -177,33 +180,45 @@ Widget inputTextField(
           color: AppColor.mCInk700,
           fontFamily: mFontRoboto,
           fontWeight: FontWeight.w400,
-          fontSize: AppDimens.mFontSizeNormal,
+          fontSize: AppDimens.mFontSizeNormal.sp,
           // height: AppDimens.mLineHeightXSmall,
         ),
       ),
-      const SizedBox(height: 4),
+      SizedBox(height: 4.h),
       SizedBox(
-        width: 304,
-        height: 44,
+        width: 304.w,
+        height: 44.h,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: AppColor.mCInk50,
             borderRadius: BorderRadius.all(Radius.circular(6.0)),
           ),
-          child: TextField(
-            // obscureText: _isObscure,
-            // textAlign: TextAlign.center,
-            controller: controller,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: '• • • • • • • • • • •',
-              suffixIcon: Padding(
-                padding: EdgeInsets.only(
-                  top: 10,
-                  bottom: 10,
-                  right: 12,
+          child: Align(
+            alignment: Alignment.center,
+            child: TextFormField(
+              // obscureText: _isObscure,
+              // textAlign: TextAlign.center,
+              controller: controller,
+              obscureText: _isObscure,
+              style: TextStyle(color: Colors.red, fontSize: 16.sp),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: '• • • • • • • • • • •',
+                hintStyle: TextStyle(fontSize: 16.sp, color: AppColor.mCInk900),
+                contentPadding:
+                    // EdgeInsets.only(left: 12, right: 44, top: 12, bottom: 12),
+                    EdgeInsets.symmetric(horizontal: 12.h),
+                suffixIcon: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.h),
+                  child: SizedBox(
+                    // width: 20.w,
+                    // height: 24.h,
+                    child: Icon(
+                      size: 24.r,
+                      Icons.visibility_outlined,
+                    ),
+                  ),
                 ),
-                child: Icon(Icons.visibility_outlined),
               ),
             ),
           ),
@@ -225,22 +240,27 @@ Widget checkFormatPassword({@required textCheck, @required boolCheck}) {
         children: [
           Align(
             alignment: Alignment.center,
-            child: SizedBox(
-              height: 24.0,
-              width: 24.0,
-              child: Checkbox(
-                activeColor: AppColor.mCGreen400,
+            child: Container(
+              // height: 1.h,
+              // width: 1.w,
+              // size
+              child: Transform.scale(
+                scale: 1.r,
+                child: Checkbox(
+                  // splashRadius: 10,
+                  activeColor: AppColor.mCGreen400,
 
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(50)), // Rounded Checkbox
-                // checkColor: Colors.red,
-                value: boolCheck,
-                onChanged: (bool? value) {},
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(10)), // Rounded Checkbox
+                  // checkColor: Colors.red,
+                  value: boolCheck,
+                  onChanged: (bool? value) {},
+                ),
               ),
             ),
           ),
-          const SizedBox(width: 4),
+          SizedBox(width: 4.w),
           Align(
             alignment: Alignment.center,
             child: Text(
@@ -248,7 +268,7 @@ Widget checkFormatPassword({@required textCheck, @required boolCheck}) {
               style: TextStyle(
                   fontFamily: mFontRoboto,
                   fontWeight: FontWeight.w400,
-                  fontSize: AppDimens.mFontSizeNormal),
+                  fontSize: AppDimens.mFontSizeNormal.sp),
             ),
           )
         ],
@@ -262,8 +282,14 @@ Widget buttonLogin({required textTitle, required funcition}) {
     onPressed: () => {
       funcition,
     },
-    child: Text(textTitle),
+    child: Text(
+      textTitle,
+      style: TextStyle(
+          fontFamily: mFontRoboto,
+          color: AppColor.mCWhite,
+          fontSize: AppDimens.mFontSizeMedium.sp),
+    ),
     style: ElevatedButton.styleFrom(
-        fixedSize: const Size(304, 44), primary: AppColor.mCPrimary400),
+        fixedSize: Size(304.w, 44.h), primary: AppColor.mCPrimary400),
   );
 }
