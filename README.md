@@ -1,3 +1,7 @@
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+
 <p align="center" >
   <a href="https://luci.vn/">
     <img src="https://luci.vn/wp-content/uploads/2019/11/logo.png"  width="500">
